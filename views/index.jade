@@ -1,0 +1,83 @@
+extends layout
+
+block content
+  header
+    .row
+      .twelve.columns
+        a(id='sidebarButton', class='sidebar-button show-for-small', href='#sidebar')
+          img(src='images/offcanvas/menu-wht.png')
+            h4 CoinJar
+        h1(class='hide-for-small')= user.full_name
+        h4(class='hide-for-small')= "Email: " + user.email
+        h4(class='hide-for-small')= "Available: ฿" + user.available_balance
+        h4(class='hide-for-small')= "Unconfirmed: ฿" + user.unconfirmed_balance
+  .row
+    .large-9.columns
+      h3 Transactions
+      .row
+        .large-12.columns
+          table(class='responsive')
+            thead
+              tr
+                th Sender/Recipient
+                th Processed
+                th Amount
+            tbody
+            - each transaction in transactions
+              tr
+                td= transaction.counterparty_type + " " + transaction.counterparty_name
+                  h6(class='subheader')= transaction.status
+                td= transaction.updated_at
+                td
+                  strong= transaction.amount
+      h3 Addresses
+      .row
+        .large-12.columns
+          table(class='responsive')
+            thead
+              tr
+                th Address
+                th Received
+                th Confirmed
+            tbody
+            - each address in bitcoin_addresses
+              tr
+                td= address.address + " " + (address.label !== null ? address.label : '')
+                td= address.total_received
+                td= address.total_confirmed
+    .large-3.small-3.columns
+      h3 CoinJar Fair Rates
+      table(class='responsive')
+        thead
+          tr
+            th Currency
+            th Bid
+            th Spot
+            th Ask
+          tbody
+          - each fair_rate in fair_rates
+            tr
+              td= fair_rate.currency
+              td= fair_rate.bid
+              td
+                strong= fair_rate.spot
+              td= fair_rate.ask
+      p.
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+        dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
+        lobortis nisl ut aliquip ex ea commodo consequat.
+      h4 Lorem ipsum
+      p Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.
+      ul(class='disc')
+        li
+          a(href='') Consectetuer Adipiscing
+          br
+          | Nam liber tempor cum soluta nobis eleifend option congue.
+        li
+          a(href='') Nonummy Nibh
+          br
+          | Typi non habent claritatem insitam.
+        li
+          a(href='') Minim Veniam
+          br
+          | Investigationes lectores legere me lius quod ii legunt saepius.

@@ -36,7 +36,7 @@ In your CoinJar sandbox account you can create a "bitcoin address" and send test
 from a [Faucet](http://testnet.mojocoin.com/).  You can return to them some test bitcoin as well.  You can create
 addresses under your account and send/receive bitcoin, this way you have some test transactional data to work with.
 
-Finally you need to turn on your user API access by going to account settings -> API access -> Enable API
+Finally you need to turn on your user API access by going to account settings -> API access -> Enable API.
 This will ask you for your credentials and display an API key.
 
 If you're building a merchant application you will also need to 
@@ -71,13 +71,13 @@ Now that your application is built and the API credentials have been set, you ca
     $ node app.js
     
 You should get the output: `Express server listening on port 3000`. 
-And finally open a browser at http://localhost:3000/
+And finally open a browser at `http://localhost:3000/`
 
 
 Debugging the web application
 ---------------------------
 If you wish to debug the application, you should install node inspector. Open a new terminal window/tab and run:
-    
+
     $ npm install -g node-inspector
 
 Next, run node-inspector:
@@ -99,7 +99,7 @@ You should get the output:
 
 You can open Chrome browser at `http://127.0.0.1:8080/debug?port=5858` to use it's development 
 tools to debug your application. Debugging will commence when you refresh the web app at
-http://localhost:3000/
+`http://localhost:3000/`
 
 
 Direct any issues/problems/questions/complaints @jimlyndon  :)
